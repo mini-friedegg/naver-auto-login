@@ -1,6 +1,7 @@
 네이버 앱 인증을 통한 자동 로그인 모듈
 
 ## 설명
+
 네이버 앱을 이용한 비공식 자동 로그인 모듈입니다.
 
 웹에서 로그인 세션을 생성하고, 딥링크로 네이버 앱을 실행한 후, 사용자가 앱에서 승인하면 폴링 방식으로 인증 쿠키를 자동으로 가져옵니다.
@@ -10,7 +11,7 @@
 ## 설치
 
 ```javascript
-const NaverLoginManager = require('./NaverLoginManager');
+const NaverLoginManager = require('NaverLoginManager');
 ```
 
 ## 사용법
@@ -77,15 +78,15 @@ if (authInfo.success) {
     success: true,
     error: "",
     data: {
-        loginId: "dustin101230",
+        loginId: "",
         loginGroupId: "",
-        nickName: "dus",
-        imageUrl: "N",
-        loginStatus: "Y",
+        nickName: "",
+        imageUrl: "",
+        loginStatus: Y",
         meCount: 0,
         talkCount: 0,
-        date: "2602",
-        membership: "false"
+        date: "",
+        membership: ""
     }
 }
 ```
@@ -98,31 +99,7 @@ if (authInfo.success) {
 
 ## 예제
 
-```javascript
-const NaverLoginManager = require('./NaverLoginManager');
-
-// 로그인
-NaverLoginManager.startAppLogin((res) => {
-    if (res.success) {
-        Log.i("✅ 로그인 성공");
-        
-        // 사용자 정보 확인
-        const info = NaverLoginManager.getAuthInfo();
-        Log.i("닉네임: " + info.data.nickName);
-        
-        // API 호출
-        const cafes = org.jsoup.Jsoup.connect(
-            "https://apis.naver.com/cafe-home-web/cafe-home/v3/home"
-        )
-            .cookies(NaverLoginManager.getCookies())
-            .ignoreContentType(true)
-            .execute()
-            .body();
-        
-        Log.i("내 카페: " + cafes);
-    }
-});
-```
+자세한 사용 예제는 [example.js](./example.js)를 참고하세요.
 
 ## 요구사항
 
