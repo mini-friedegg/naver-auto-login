@@ -82,7 +82,7 @@ if (authInfo.success) {
         loginGroupId: "",
         nickName: "",
         imageUrl: "",
-        loginStatus: Y",
+        loginStatus: "",
         meCount: 0,
         talkCount: 0,
         date: "",
