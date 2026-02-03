@@ -1,4 +1,4 @@
-네이버 앱 인증을 통한 자동 로그인 모듈
+# 네이버 앱 인증을 통한 자동 로그인 모듈
 
 ## 설명
 
@@ -45,6 +45,23 @@ if (authInfo.success) {
     Log.i("아이디: " + authInfo.data.loginId);
     Log.i("닉네임: " + authInfo.data.nickName);
 }
+```
+
+### 쿠키 접근
+
+```javascript
+// 방법 1: getCookies() 메서드
+const cookies1 = NaverLoginManager.getCookies();
+
+// 방법 2: .cookies 속성으로 직접 접근
+const cookies2 = NaverLoginManager.cookies;
+
+// 방법 3: 로그인 응답 객체에서 접근
+NaverLoginManager.startAppLogin((response) => {
+    if (response.success) {
+        const cookies3 = response.cookies;
+    }
+});
 ```
 
 ## API
@@ -97,6 +114,8 @@ if (authInfo.success) {
 
 **반환:** `java.util.HashMap` (로그인 안 됐으면 `null`)
 
+**참고:** `NaverLoginManager.cookies` 속성으로도 직접 접근 가능합니다.
+
 ## 예제
 
 자세한 사용 예제는 [example.js](./example.js)를 참고하세요.
@@ -111,7 +130,6 @@ if (authInfo.success) {
 - 네이버 앱에서 수동으로 로그인 승인 필요
 - 쿠키는 메모리에만 저장 (재시작 시 재로그인 필요)
 - 최대 대기 시간: 60초
-  
 
 ## 라이센스
 
