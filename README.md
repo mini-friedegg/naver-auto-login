@@ -133,3 +133,6 @@ NaverLoginManager.startAppLogin((response) => {
 ## 라이센스
 
 MIT
+
+## 업데이트 로그
+V1.0.0 
